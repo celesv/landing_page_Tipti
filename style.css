@@ -102,7 +102,7 @@ main {
   grid-area: 2 / 1 / 5 / 1;
   /* Con fixed nuevamente hay q acomodarlo!  */
   position: fixed;
-  top: 12.5rem;
+  top: 21.875rem;
   z-index: 1;
 }
 
@@ -145,13 +145,15 @@ main {
 
 .contenedor_titulo {
   /* height: 100vh; Siempre necesario con flex para definir el tamano relativo del contenedor a la vista y tener espacio para acomodar los elementos */
-  grid-area: 4 / 2 / 6 / 5;
+  grid-area: 5 / 2 / 6 / 5;
 }
 
 .titulo {
 }
 .btn a {
 }
+
+/* ------------- Seccion 2 ------------ */
 
 .propiedades_renta_1 {
   height: 100vh;
@@ -224,8 +226,7 @@ main {
   bottom: 0;
   left: 0;
   width: 100%;
-  padding-left: .625rem;
-
+  padding-left: 0.625rem;
 }
 
 .localidad p span {
@@ -237,5 +238,52 @@ main {
 }
 .provincia {
   margin-bottom: 0.5313rem;
+}
 
+/* ------------- Seccion 3 ------------ */
+
+.desarrollos {
+  margin: 3.125rem 6.25rem;
+}
+.titulos_dsrll {
+  text-align: center ;
+  margin-bottom: 2.8125rem;
+}
+.tlo_1 {
+}
+.tlo_h2 {
+}
+.galeria_desarrollos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.contenedor_img_dsrll {
+  display: flex;
+  padding: 0.625rem;
+  width: 25%;
+}
+
+.img_dsrll {
+  display: flex;
+  /* Cuando una propiedad de flex no funciona o tiene un comportamiento raro probar colocando display flex en los hijos superiores al hijo flexible. Y asi mismo colocar flex al padre que contiene a todos esos hijos  */
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.img_dsrll img {
+  display: block;
+  width: calc(25.8125rem * (1536 / 1920));
+  height: calc(16.75rem * (864 / 1080));
+  object-fit: cover;
+}
+
+.construccion {
+  height: calc(7.0625rem * (864 / 1080));
+  width: 25.8125rem;
+  padding-left: 1.875rem;
+}
+.edificio {
+}
+.lugar {
 }
