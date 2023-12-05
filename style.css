@@ -14,7 +14,7 @@ body {
 }
 
 .seccion_inicio {
-  scroll-snap-align: start;
+  /* scroll-snap-align: start; */
   width: 100%;
   height: 100vh;
   /* height: auto; Si fuese con flex el main para que no se desborde es necesario el valor por defecto */
@@ -23,24 +23,39 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   overflow-y: hidden;
+  background-color: #cccccc79;
+  background-blend-mode: multiply;
 }
 
+a {
+  text-decoration: none;
+}
+
+header {
+  position: fixed;
+  width: 100vw;
+  z-index: 2;
+}
 .encabezado {
   display: flex;
   justify-content: space-between;
 }
 
+.navegador {
+  display: flex;
+}
+
 .navegador a {
-  display: inline-flex;
-  text-decoration: none;
-  padding: 1.25rem;
+  padding: 1.25rem 1.5625rem;
 }
 
 .inicio_registro {
+  display: flex;
   padding-right: 1.875rem;
 }
 
 .idiomas {
+  display: flex;
 }
 
 .logo {
@@ -85,12 +100,16 @@ main {
   height: fit-content;
   overflow: hidden;
   grid-area: 2 / 1 / 5 / 1;
+  /* Con fixed nuevamente hay q acomodarlo!  */
+  position: fixed;
+  top: 12.5rem;
+  z-index: 1;
 }
 
 .follow {
+  /* La proxima tratar con otra tag q no sea span o probar como colocar un display: inline-block a span  */
   transform: rotate(90deg);
-  width: 100%;
-  padding: 2rem;
+  padding: 1.7rem;
 }
 
 .divisor {
@@ -112,17 +131,17 @@ main {
 
 .buscador {
   grid-column: 9 / span 4;
-  align-self: center;
+  grid-row: 2 / 3;
+  align-self: flex-start;
   text-align: center;
 }
 
-.buscador input{
+.buscador input {
   border: none; /* Quita el borde predeterminado */
   outline: none; /* Quita el contorno al hacer clic en el input */
   background-color: rgba(255, 255, 255, 0);
   cursor: pointer;
 }
-
 
 .contenedor_titulo {
   /* height: 100vh; Siempre necesario con flex para definir el tamano relativo del contenedor a la vista y tener espacio para acomodar los elementos */
@@ -132,5 +151,91 @@ main {
 .titulo {
 }
 .btn a {
-  text-decoration: none;
+}
+
+.propiedades_renta_1 {
+  height: 100vh;
+  /* Necesario para que el grid ocupe el tamano de la vista */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem 1rem;
+  align-items: center;
+  justify-items: center;
+}
+
+.presentacion_derecha {
+  /* Necesario para que el grid ocupe el tamano de la vista */
+  width: 100%;
+  display: grid;
+  grid-template: repeat(2, auto) / auto 1fr auto;
+  gap: 17.8125rem 7.5rem;
+}
+
+.texto_derecha {
+  grid-area: 1/ 2/ 2 / 3;
+  text-align: right;
+}
+
+.titulo_derecha {
+}
+.titulo_h2 {
+}
+.btn_slider {
+  grid-area: 2/ 2/ 3 / 3;
+  text-align: center;
+}
+.prev {
+}
+.view_properties {
+}
+.next {
+}
+
+.presentacion_izquierda {
+}
+.galeria_1 {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: auto 1fr auto;
+}
+
+.contenedor_galeria {
+  grid-column: span 6;
+  grid-row: 2 / 3;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  overflow: hidden;
+}
+
+.contenedor_imagen {
+  position: relative;
+}
+
+.galeria_1 img {
+  display: block;
+  margin: 0 auto;
+  max-width: calc(407px * (1536 / 1920));
+  /* max-width: 100% Solo para responsive; */
+}
+
+.localidad p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding-left: .625rem;
+
+}
+
+.localidad p span {
+  display: inline-block;
+}
+
+.pais {
+  margin-bottom: 0.5313rem;
+}
+.provincia {
+  margin-bottom: 0.5313rem;
+
 }
