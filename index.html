@@ -408,22 +408,31 @@
                     <br>
                     the exclusive world
                 </h2>
-
-                <div class="datos">
-                    <p class="dts_email">Email:</p>
-
-                    <input
-                        type="text"
-                        class="email"
-                        placeholder="Ex. name@mail.com"
-                    ></input>
-
-                    <button class="enviar">Submit</button>
-                </div>
             </div>
 
-            <div class="foot">
-                <div class="logo_foot">
+            <div class="datos">
+                <form
+                    action="/procesar-formulario"
+                    method="post"
+                >
+                    <label for="email">Email:</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Ex. name@mail.com"
+                        required="required"
+                    ></input>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="foot">
+            <div class="cntdr_foot">
+                <div class="logo_foot ancho">
                     <a
                         href=""
                         class="log_ft"
@@ -444,7 +453,7 @@
                     </div>
                 </div>
 
-                <div class="cntdr_suites">
+                <div class="cntdr_suites ancho">
                     <div class="sts">
                         <p class="suites">
                             Suites
@@ -458,7 +467,7 @@
                     </div>
                 </div>
 
-                <div class="cntdr_houses">
+                <div class="cntdr_houses ancho">
                     <div class="houses">
                         <p class="hs">
                             Houses
@@ -466,14 +475,11 @@
                             <br>
                             Apartaments
                         </p>
+                        <p class="cntct_us">Contact us</p>
                     </div>
                 </div>
 
-                <div class="contact_us">
-                    <p class="cntct_us">Contact us</p>
-                </div>
-
-                <div class="call_center">
+                <div class="call_center ancho">
                     <div class="call_cntr">
                         <p class="call_rlln">Call Center</p>
 
@@ -483,9 +489,9 @@
                     </div>
                 </div>
 
-                <div class="copyright">
-                    <p class="copy">Copyright © 2022</p>
-                </div>
+            </div>
+            <div class="copyright">
+                <p class="copy">Copyright © 2022</p>
             </div>
         </div>
     </footer>
