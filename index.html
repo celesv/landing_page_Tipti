@@ -135,11 +135,18 @@
             </div>
 
             <div class="buscador">
-                <input
-                    type="text"
+                <form
                     id=""
-                    placeholder="Ex. Villa Budapest"
-                ></input>
+                    action="#"
+                    method="get"
+                >
+                    <input
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Ex. Villa Budapest"
+                    ></input>
+                </form>
             </div>
 
             <div class="contenedor_titulo">
@@ -228,6 +235,99 @@
             </div>
 
             <div class="btn_slider">
+                <span class="prev">
+                    <a href="">PREV</a>
+                </span>
+
+                <span class="view_properties">
+                    <a href="">View all properties</a>
+                </span>
+
+                <span class="next">
+                    <a href="">NEXT</a>
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- --------- Copia --------- -->
+
+    <section class="propiedades_renta_2">
+        <div class="presentacion_izquierda">
+            <div class="galeria_1">
+                <div class="contenedor_galeria">
+                    <div class="contenedor_imagen">
+                        <a href="">
+                            <img
+                                src="images\renta_2.jpg"
+                                alt=""
+                            >
+
+                            <div class="localidad_2">
+                                <p>
+                                    <span class="pais">France</span>
+
+                                    <br>
+
+                                    <span class="provincia">Glasgow</span>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="contenedor_imagen">
+                        <a href="">
+                            <img
+                                src="images\renta_1.jpg"
+                                alt=""
+                            >
+
+                            <div class="localidad_2">
+                                <p>
+                                    <span class="pais">England</span>
+
+                                    <br>
+
+                                    <span class="provincia">Glasgow</span>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="contenedor_imagen">
+                        <a href="">
+                            <img
+                                src="images\renta_3.jpg"
+                                alt=""
+                            >
+
+                            <div class="localidad_2">
+                                <p>
+                                    <span class="pais">France</span>
+
+                                    <br>
+
+                                    <span class="provincia">Marseilles</span>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="presentacion_derecha">
+            <div class="texto_derecha_2">
+                <p class="titulo_derecha2">Worldwide gallery</p>
+
+                <h2 class="titulo_h2_2">Properties for rent</h2>
+
+                <p class="prrf_renta_2">
+                    In an ultimate jetsetter location or a forever home, our experts have the expertise it takes to knowledgeably advise you at every stage of the property cycle.
+                </p>
+            </div>
+
+            <div class="btn_slider_2">
                 <span class="prev">
                     <a href="">PREV</a>
                 </span>
@@ -397,6 +497,53 @@
         </div>
     </section>
 
+    <section class="seccion_art">
+        <div class="gray_art">
+            <div class="gry_cuadrado"></div>
+        </div>
+
+        <div class="img_sala">
+            <img
+                src="images\sala.jpg"
+                alt=""
+            >
+        </div>
+
+        <div class="decor">
+            <img
+                src="src\decor.png"
+                alt=""
+            >
+        </div>
+
+        <div class="art_cntndr_ttls">
+            <p class="art_servicies">Services</p>
+
+            <h2 class="art_titulos">
+                Art Curation &
+                Interior Design
+            </h2>
+
+            <p class="prrf_art">
+                In an ultimate jetsetter location or a forever home, our experts have the expertise it takes to knowledgeably advise you at every stage of the property cycle.
+            </p>
+        </div>
+
+        <div class="btn_slider">
+            <span class="prev">
+                <a href="">PREV</a>
+            </span>
+
+            <span class="btn.cntct">
+                <a href="">Contact us</a>
+            </span>
+
+            <span class="next">
+                <a href="">NEXT</a>
+            </span>
+        </div>
+    </section>
+
     <footer>
         <div class="formulario">
             <div class="tls_form">
@@ -412,6 +559,7 @@
 
             <div class="datos">
                 <form
+                    class="form"
                     action="/procesar-formulario"
                     method="post"
                 >
@@ -445,10 +593,11 @@
 
                     <div class="become">
                         <p class="relleno">
-                            Become a New Uniq Artist
+                            <a href="">Become a New Uniq Artist</a>
 
                             <br>
-                            Become a Commercial Partner
+
+                            <a href="">Become a Commercial Partner</a>
                         </p>
                     </div>
                 </div>
@@ -456,13 +605,15 @@
                 <div class="cntdr_suites ancho">
                     <div class="sts">
                         <p class="suites">
-                            Suites
+                            <a href="">Suites</a>
 
                             <br>
-                            Cities
+
+                            <a href="">Cities</a>
 
                             <br>
-                            Villas
+
+                            <a href="">Villas</a>
                         </p>
                     </div>
                 </div>
@@ -470,26 +621,36 @@
                 <div class="cntdr_houses ancho">
                     <div class="houses">
                         <p class="hs">
-                            Houses
+                            <a href="">Houses</a>
 
                             <br>
-                            Apartaments
+
+                            <a href="">Apartaments</a>
                         </p>
-                        <p class="cntct_us">Contact us</p>
+
+                        <p class="cntct_us">
+                            <a href="">Contact us</a>
+                        </p>
                     </div>
                 </div>
 
                 <div class="call_center ancho">
                     <div class="call_cntr">
-                        <p class="call_rlln">Call Center</p>
+                        <p class="call_rlln">
+                            <a href="">Call Center</a>
+                        </p>
 
-                        <p class="call_rlln tlfn">+52 55 6840 4000</p>
+                        <p class="call_rlln tlfn">
+                            <a href="">+52 55 6840 4000</a>
+                        </p>
 
-                        <p class="call_rlln">concierge@uniqluxury.com</p>
+                        <p class="call_rlln">
+                            <a href="">concierge@uniqluxury.com</a>
+                        </p>
                     </div>
                 </div>
-
             </div>
+
             <div class="copyright">
                 <p class="copy">Copyright © 2022</p>
             </div>

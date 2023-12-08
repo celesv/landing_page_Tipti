@@ -5,19 +5,17 @@
 }
 
 html {
-  height: 100%;
-  scroll-snap-type: y mandatory;
+  min-height: 100%;
+  /* scroll-snap-type: y mandatory; */
 }
 
 body {
-  min-height: 100%;
 }
 
 .seccion_inicio {
   /* scroll-snap-align: start; */
   width: 100%;
   height: 100vh;
-  /* height: auto; Si fuese con flex el main para que no se desborde es necesario el valor por defecto */
   background-image: url(images/hotel.jpg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -46,7 +44,7 @@ header {
 }
 
 .navegador a {
-  padding: 1.25rem 1.5625rem;
+  padding: 2.5rem 1.5625rem;
 }
 
 .inicio_registro {
@@ -87,7 +85,7 @@ header {
 
 main {
   height: 100vh;
-  /* Necesario para que el grid ocupe el tamano de la vista */
+  /* Necesario para que el grid ocupe el tamano de la vista y tambien funciona con 100% */
   display: grid;
   grid-template: repeat(6, 1fr) / repeat(12, 1fr);
   gap: 1rem 1rem;
@@ -132,7 +130,8 @@ main {
 .buscador {
   grid-column: 9 / span 4;
   grid-row: 2 / 3;
-  align-self: flex-start;
+  align-self: center;
+  justify-self: center;
   text-align: center;
 }
 
@@ -144,7 +143,6 @@ main {
 }
 
 .contenedor_titulo {
-  /* height: 100vh; Siempre necesario con flex para definir el tamano relativo del contenedor a la vista y tener espacio para acomodar los elementos */
   grid-area: 5 / 2 / 6 / 5;
 }
 
@@ -156,8 +154,7 @@ main {
 /* ------------- Seccion 2 ------------ */
 
 .propiedades_renta_1 {
-  height: 100vh;
-  /* Necesario para que el grid ocupe el tamano de la vista */
+  margin-top: 6.25rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem 1rem;
@@ -166,16 +163,16 @@ main {
 }
 
 .presentacion_derecha {
-  /* Necesario para que el grid ocupe el tamano de la vista */
+  height: 100%;
   width: 100%;
   display: grid;
-  grid-template: repeat(2, auto) / auto 1fr auto;
-  gap: 17.8125rem 7.5rem;
+  grid-template-rows: repeat(2, auto);
+  grid-auto-columns: 1fr;
 }
 
 .texto_derecha {
-  grid-area: 1/ 2/ 2 / 3;
   text-align: right;
+  grid-row: 1 / 2;
 }
 
 .titulo_derecha {
@@ -183,8 +180,11 @@ main {
 .titulo_h2 {
 }
 .btn_slider {
-  grid-area: 2/ 2/ 3 / 3;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
   text-align: center;
+  grid-row: 2 / 3;
 }
 .prev {
 }
@@ -198,12 +198,10 @@ main {
 .galeria_1 {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: auto 1fr auto;
 }
 
 .contenedor_galeria {
   grid-column: span 6;
-  grid-row: 2 / 3;
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
@@ -240,13 +238,60 @@ main {
   margin-bottom: 0.5313rem;
 }
 
+/* -------------- Copia ------------------- */
+
+.propiedades_renta_2 {
+  direction: rtl;
+  margin-top: 6.25rem;
+  margin-bottom: 6.25rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem 1rem;
+  align-items: center;
+  justify-items: center;
+}
+
+.texto_derecha_2 {
+  text-align: left;
+  grid-row: 1 / 2;
+}
+
+.titulo_derecha_2 {
+}
+.titulo_h2_2 {
+}
+
+.prrf_renta_2 {
+}
+
+.btn_slider_2 {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: center;
+  grid-row: 2 / 3;
+}
+
+.localidad_2 p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: left;
+  width: 100%;
+  padding-left: 0.625rem;
+}
+
+.localidad_2 p span {
+  display: inline-block;
+}
+
 /* ------------- Seccion 3 ------------ */
 
 .desarrollos {
   margin: 3.125rem 6.25rem;
 }
 .titulos_dsrll {
-  text-align: center ;
+  text-align: center;
   margin-bottom: 2.8125rem;
 }
 .tlo_1 {
@@ -290,12 +335,11 @@ main {
 }
 
 /* ------------- Seccion 4 ------------ */
-footer{
-  height: 100vh;
+footer {
+  overflow: hidden;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-
+  grid-template-rows: repeat(6, auto);
 }
 
 .formulario {
@@ -303,16 +347,15 @@ footer{
   grid-row: 1 / 3;
   width: 81rem;
   z-index: 1;
-  height: calc(19.5rem * (864 / 1080));
+  height: calc(17rem * (864 / 1080));
   background-color: #d1e4ff;
   display: flex;
   align-items: center;
   margin: auto;
-
 }
 .tls_form {
   width: 50%;
-padding-left: calc(8.125rem * (1536 / 1920));
+  padding-left: calc(8.125rem * (1536 / 1920));
 }
 
 .join {
@@ -321,12 +364,12 @@ padding-left: calc(8.125rem * (1536 / 1920));
 }
 .datos {
   width: 50%;
-display: flex;
-justify-content: flex-end;
-padding-right: calc(8.125rem * (1536 / 1920));
+  display: flex;
+  justify-content: flex-end;
+  padding-right: calc(8.125rem * (1536 / 1920));
 }
 
-form {
+.form {
   display: flex;
   flex-direction: column;
 }
@@ -337,26 +380,28 @@ label[for="email"] {
 
 input[for="email"] {
   text-align: left;
-
 }
-  .foot {
-    height: calc(40rem * (864 / 1080));
-    grid-column: 1 / 13;
-    grid-row: 2 / 7;
-    background-color: #f9ffd1;
-  }
+.foot {
+  height: calc(29rem * (864 / 1080));
+  grid-column: 1 / 13;
+  grid-row: 2 / 7;
+  background-color: #f9ffd1;
+  margin: 0 auto;
+}
 
-.cntdr_foot{
+.cntdr_foot {
   display: flex;
-  margin-top: 12.5rem;
-  justify-content: space-between;
+  margin-top: 15rem;
+  align-items: center;
+  width: 81rem;
+  margin-right: auto;
+  margin-left: auto;
+  gap: 1rem;
 }
 
-
-.ancho{
+.ancho {
   width: 25%;
 }
-
 
 .logo_foot {
 }
@@ -367,12 +412,17 @@ input[for="email"] {
 .relleno {
 }
 .cntdr_suites {
+  display: flex;
+  justify-content: center;
 }
+
 .sts {
 }
 .suites {
 }
 .cntdr_houses {
+  display: flex;
+  justify-content: center;
 }
 .houses {
 }
@@ -383,6 +433,9 @@ input[for="email"] {
 .cntct_us {
 }
 .call_center {
+  display: flex;
+  justify-content: flex-end;
+  text-align: right;
 }
 .call_cntr {
 }
@@ -391,8 +444,79 @@ input[for="email"] {
 .tlfn {
 }
 .copyright {
+  margin-top: 30px;
   width: 100vw;
- text-align: center;
+  text-align: center;
 }
 .copy {
+}
+
+/* ------------- Seccion 5 ------------ */
+
+.seccion_art {
+  display: grid;
+  grid-template-columns: repeat(12, 6.875rem);
+  grid-template-rows: repeat(6, 1fr);
+  /* Con medidas absolutas y fijas hay q tener cuidado en caso de que el item sea mas grande q el contenedor */
+  margin-bottom: 3.125rem;
+}
+
+
+.gray_art {
+  grid-column: 2/6;
+  grid-row: 1 /7;
+}
+
+.gry_cuadrado {
+  width: calc(16.6667% * 6);
+  /* 16.6667% es 1/6 para 6 columnas. Dividir 100% (el ancho total) por el número total de columnas (6). La unidad rem se refiere al tamaño de la fuente de la raíz del documento, mientras que el porcentaje (%) se basa en el ancho del elemento contenedor. */
+  height: calc(58.75rem * (864 / 1080));
+  background-color: #26282b;
+}
+
+.img_sala {
+  grid-column: 3/7;
+  grid-row: 1 /7;
+  align-self: center;
+
+
+}
+
+.img_sala img {
+  width: calc(48rem * (1536 / 1920));
+  /* imagen cuadrada */
+}
+
+.decor {
+  grid-column: 9/13;
+  grid-row: 1 /1;
+  align-self: flex-end;
+}
+
+
+.decor img {
+  width: calc(49.5625rem * (1536 / 1920));
+  height: calc(7.1013rem * (864 / 1080));
+  object-fit: cover;
+}
+
+.art_cntndr_ttls {
+  grid-column: 9/13;
+  grid-row: 2 /5;
+}
+.art_servicies {
+}
+.art_titulos {
+}
+.prrf_art {
+}
+.btn_slider {
+  grid-column: 9/13;
+  grid-row: 5 /6;
+}
+.prev {
+}
+.btn.cntct {
+}
+.next {
 }
