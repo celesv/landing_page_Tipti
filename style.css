@@ -385,8 +385,9 @@ form#form_1 ::placeholder {
 
 .prrf_renta_2 {
   text-align: left;
+  font-size: calc(25px * (1536 / 1920));
   line-height: calc(40px * (1536 / 1920));
-  padding-top: 2.5rem;
+    padding-top: 2.5rem;
   direction: ltr;
   /* Si no pongo este direction tengo problemas con los puntos finales */
 }
@@ -492,35 +493,38 @@ footer {
   grid-column: 2 / 12;
   grid-row: 1 / 3;
   width: calc(10% * 10);
+  /* O 100%, las dos son formas de hacer un elemento responsivo */
   z-index: 1;
-  height: calc(17rem * (864 / 1080));
+  height: calc(18rem * (864 / 1080));
   background-color: #26282B;
   display: flex;
   align-items: center;
   margin: auto;
+  gap: 1rem;
 }
 .tls_form {
-  width: 40%;
-  padding-left: calc(8.125rem * (1536 / 1920));
+  width: 50%;
+  padding-left: calc(150px * (1536 / 1920));
 }
 
 .join {
   color: #DF991B;
-font-family: var(--fuente-principal-regal);
-font-size: calc(22px * (1536 / 1920));
-font-weight: 400;
+  font-family: var(--fuente-principal-regal);
+  font-size: calc(36px * (1536 / 1920));
+  font-weight: 400;
 }
 .tlo_prnpl {
   color: #FFF;
   font-family: var(--fuente-principal-regal);
-  font-size: calc(35px * (1536 / 1920));
-font-weight: 500;
+  font-size: calc(60px * (1536 / 1920));
+  font-weight: 500;
+  line-height: 60px;
 }
 .datos {
-  width: 60%;
+  width: 50%;
   display: flex;
   justify-content: flex-end;
-  padding-right: calc(8.125rem * (1536 / 1920));
+  padding-right: calc(150px* (1536 / 1920));
 }
 
 .form {
@@ -529,30 +533,43 @@ font-weight: 500;
 }
 
 label[for="email"] {
+  width: fit-content;
   text-align: left;
   color: #FFF;
-font-size: calc(20px * (1536 / 1920));
-font-weight: 390;
+  font-size: calc(20px * (1536 / 1920));
+  font-weight: 390;
+  margin-bottom: .3125rem;
+  padding-left: 2.5rem;
+
 }
 
 input[type="email"][id="email"] {
   border-radius: 100px;
   border: 1px solid #7E7E7E;
   background-color: #26282B;
-  padding-right: 17.5rem; 
-  padding-left: 1.875rem;
-  padding-top: .5rem ;
-  padding-bottom: .5rem ;
+  padding-right: 21rem;
+  padding-left: 2rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-size: calc(20px * (1536 / 1920));
+  color: #FFF;;
+  outline: none; /* Quita el contorno al hacer clic en el input */
 
 }
 
-input[type="submit"] {
+.btn_email {
   border-radius: 100px;
   border: 1px solid #DF991B;
   background-color: #26282B;
-  padding: 0.5rem 2rem !important; /* Añade !important para aumentar la especificidad */
+  padding-top: 0.75rem;
+  padding-right: 4.0625rem;
+  padding-bottom: 0.75rem;
+  padding-left: 4.0625rem;
+  margin-top: 15px;
+  align-self: flex-end;
+  font-size: calc(30px * (1536 / 1920));
+  color: #DF991B;
 }
-
 
 
 .foot {
@@ -668,8 +685,6 @@ input[type="submit"] {
   grid-column: 8/12;
   grid-row: 1 /1;
   align-self: flex-end;
-  /* overflow: hidden; */
-  /* Use el hidden cuando el grid tenia 12 columnas */
 }
 
 .decor img {
@@ -681,6 +696,8 @@ input[type="submit"] {
 .art_cntndr_ttls {
   grid-column: 8/12;
   grid-row: 2 /5;
+  padding-left: calc(30px * (1536 / 1920));;
+
 }
 .art_servicies {
   color: #DF991B;
@@ -697,13 +714,16 @@ font-weight: 500;
 .prrf_art {
   color: #000;
 font-family: Brandon Grotesque;
+font-size: calc(25px * (1536 / 1920));
 line-height: calc(40px * (1536 / 1920));
 font-weight: 330;
 padding-top: 2.5rem;
 }
 .btn_slider {
+  padding-left: calc(30px * (1536 / 1920));;
   grid-column: 8/12;
   grid-row: 5 /6;
+  align-self: center;
 }
 .prev2 a {
 }
