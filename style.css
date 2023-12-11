@@ -423,7 +423,7 @@ form#form_1 ::placeholder {
 }
 .titulos_dsrll {
   text-align: center;
-  margin-bottom: 2.8125rem;
+  margin-bottom: 3.125rem;
 }
 .tlo_1 {
   color: #df991b;
@@ -440,13 +440,22 @@ form#form_1 ::placeholder {
 .galeria_desarrollos {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
 }
 .contenedor_img_dsrll {
-  display: flex;
-  padding: 0.625rem;
+  padding-right: .625rem; /* Espacio entre columnas */
+  padding-bottom: 1.875rem;
   width: 25%;
 }
+
+/* El cuarto item en cada fila no debería tener padding derecho */
+.contenedor_img_dsrll:nth-child(4n) {
+  padding-right: 0;
+}
+/* indica que la cuenta se realiza en dirección inversa, desde el último hijo hacia el primero. En este caso, selecciona los últimos cuatro elementos. */
+.contenedor_img_dsrll:nth-last-child(-n+4) {
+  padding-bottom: 0;
+}
+
 
 .img_dsrll {
   display: flex;
@@ -463,20 +472,20 @@ form#form_1 ::placeholder {
 }
 
 .construccion {
-  padding-left: 1.875rem;
+  padding-left: .625rem;
   padding-top: 1.5625rem;
 }
 .edificio {
   color: #464547;
   font-family: var(--fuente-principal-regal);
-  font-size: calc(1.25rem * (1536 / 1920));
+  font-size: calc(22px * (1536 / 1920));
   font-weight: 500;
 
 }
 .lugar {
   color: #000;
   font-family: var(--fuente-principal-regal);
-  font-size: calc(1.875rem * (1536 / 1920));
+  font-size: calc(35px * (1536 / 1920));
   font-weight: 600;
   letter-spacing: 1px;
 
@@ -536,7 +545,7 @@ label[for="email"] {
   width: fit-content;
   text-align: left;
   color: #FFF;
-  font-size: calc(20px * (1536 / 1920));
+  font-size: calc(25px * (1536 / 1920));
   font-weight: 390;
   margin-bottom: .3125rem;
   padding-left: 2.5rem;
@@ -552,7 +561,7 @@ input[type="email"][id="email"] {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   font-size: calc(20px * (1536 / 1920));
-  color: #FFF;;
+  color: #FFF;
   outline: none; /* Quita el contorno al hacer clic en el input */
 
 }
@@ -576,74 +585,129 @@ input[type="email"][id="email"] {
   width: calc(10% * 10);
   grid-column: 1 / 13;
   grid-row: 2 / 6;
-  background-color: #f9ffd1;
+  background-color: #000;
   margin: 0 auto;
 }
 
 .cntdr_foot {
   display: flex;
-  margin-top: 12rem;
-  align-items: center;
+  margin-top: 14.0625rem;
+  align-items: flex-end;
   margin-right: 6.875rem;
   margin-left: 6.875rem;
   gap: 1rem;
+  border-bottom: .0625rem solid #FFF;
+    padding-bottom: 1.875rem;
 }
 
 .ancho {
   width: 25%;
 }
 
-.logo_foot img {
+.logo_foot {
+  padding-top: 1.875rem;
+
+}
+
+.log_ft{
+  display: block;
+  padding-bottom: 2.1875rem;
+
+}
+
+.log_ft img {
   display: block;
   max-width: 100%;
   width: calc(16.625rem * (1536 / 1920));
   height: calc(1.4931rem * (864 / 1080));
 }
-.log_ft {
+
+.become  {
+
 }
-.become {
-}
-.relleno {
+.relleno a {
+  font-size: calc(30px * (1536 / 1920));
+  line-height: calc(45px * (1536 / 1920));
 }
 .cntdr_suites {
   display: flex;
   justify-content: center;
 }
 
-.sts {
+.sts p {
+  padding-bottom: 1.875rem;  
 }
-.suites {
+.suites a {
+  font-size: calc(30px * (1536 / 1920));
+  line-height: calc(45px * (1536 / 1920));
 }
 .cntdr_houses {
+  font-size: calc(30px * (1536 / 1920));
+  line-height: calc(45px * (1536 / 1920));
   display: flex;
   justify-content: center;
 }
 .houses {
 }
-.hs {
+
+
+.hs_houses {
 }
-.contact_us {
+.hs_p {
+}
+.hs_aprtmnts {
+}
+.aprtmnts_p {
 }
 .cntct_us {
+  display: block;
+  padding-top: 1.875rem;
 }
+.cntct_p {
+}
+
+
+
+
+
 .call_center {
   display: flex;
   justify-content: flex-end;
   text-align: right;
 }
-.call_cntr {
+
+.call_rlln a {
+  font-size: calc(30px * (1536 / 1920));
+  line-height: calc(45px * (1536 / 1920));
+  font-family: var(--fuente-principal-regal);
 }
-.call_rlln {
+.tlfn a {
+  font-size: calc(40px * (1536 / 1920));
+  line-height: calc(45px * (1536 / 1920));
+  font-family: var(--fuente-principal-regal);
+
 }
-.tlfn {
+
+.call_email a {
+  display: block;
+  font-size: calc(30px * (1536 / 1920));
+  line-height: calc(45px * (1536 / 1920));
+  padding-top: 1.875rem;
 }
+
+
 .copyright {
   text-align: center;
   grid-column: 1 / 13;
   grid-row: 6 / 7;
-  background-color: #f9ffd1;
+  background-color: #000;
+  color: #FFFFFF;
+  padding: 1.25rem 0;
 }
-.copy {
+p.copy {
+  font-size: calc(20px * (1536 / 1920));
+  line-height: calc(45px * (1536 / 1920));
+  font-weight: 450;
 }
 
 /* ------------- Seccion 5 ------------ */
