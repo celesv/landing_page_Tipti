@@ -26,9 +26,6 @@
 }
 
 html {
-  width: 100%;
-  max-width: 100vw;
-  /* Cuando usa CSS para hacer que el contenedor tenga todo el ancho usando el código width: 100%;, notará un desplazamiento horizontal en la página, y eso sucedió porque las etiquetas padding y margin se agregaron al tamaño del contenedor, por lo que la solución es agregar max-width: 100vw */
   /* overflow-x: hidden; */
   /* desactivar el hidden x en el devtool solo uso este hidden para pruebas */
   /* scroll-snap-type: y mandatory; */
@@ -41,13 +38,13 @@ body {
   /* scroll-snap-align: start; */
   width: 100%;
   height: 100vh;
-  background-image: url(images/hotel.jpg);
+  background-image: url(images/hotel.jpg),
+    linear-gradient(180deg, #000000d3 0%, #7e7e7ed4 100%);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  overflow-y: hidden;
-  background-color: #cccccc79;
-  background-blend-mode: multiply;
+  overflow-x: hidden;
+  background-blend-mode: overlay;
 }
 
 a {
@@ -58,8 +55,6 @@ a {
 header {
   position: fixed;
   width: 100%;
-  max-width: 100vw;
-  /* Cuando usa CSS para hacer que el contenedor tenga todo el ancho usando el código width: 100%;, notará un desplazamiento horizontal en la página, y eso sucedió porque las etiquetas padding y margin se agregaron al tamaño del contenedor, por lo que la solución es agregar max-width: 100vw */
   z-index: 2;
 }
 
@@ -99,12 +94,12 @@ header {
 
 .esp {
   padding-right: 1.5625rem;
-  padding-left: 3.125rem;
+  padding-left: 5rem;
 }
 
 .eng {
   padding-right: 1.5625rem;
-  padding-left: 1.5625rem;
+  padding-left: 1rem;
   color: #fff;
 }
 
@@ -136,7 +131,7 @@ main {
   height: 100vh;
   /* Necesario para que el grid ocupe el tamano de la vista y tambien funciona con 100% */
   display: grid;
-  grid-template: repeat(6, 1fr) / repeat(12, 1fr);
+  grid-template: repeat(6, 1fr) / 7.161458% repeat(10, 1fr) 7.161458%;
   gap: 1rem 1rem;
 }
 
@@ -181,9 +176,7 @@ main {
 .buscador {
   grid-column: 9 / 12;
   grid-row: 2 / 3;
-  align-self: center;
-  justify-self: center;
-  text-align: center;
+  align-self: flex-end;
 }
 
 .buscador input {
@@ -194,13 +187,30 @@ main {
   font-size: 20px;
   font-weight: 390;
   border-radius: 100px;
-  padding: 0.5rem 1.875rem;
+  padding-top: 0.625rem;
+  padding-right: 3rem;
+  padding-bottom: 0.625rem;
+  padding-left: 1.875rem;
 }
 
 form#form_1 ::placeholder {
   font-size: 16px;
-  text-align: center;
+  text-align: left;
   color: #fff;
+}
+
+#search:focus::placeholder {
+  color: transparent;
+}
+
+input[type="text"][id="search"] {
+  background-image: url(src/lupa.svg);
+  background-repeat: no-repeat;
+  background-position: 95%;
+  /* prefiero una posicion relativa % a una absoluta px o rem */
+  background-size: 1.0625rem;
+  color: #fff;
+  width: 100%;
 }
 
 .contenedor_titulo {
@@ -232,8 +242,17 @@ form#form_1 ::placeholder {
   font-weight: 390;
   border-radius: 100px;
   border: 1px solid #fff;
-  padding: 0.75rem 4.0625rem;
-  margin-top: 1.875rem;
+  padding-top: 2.380952%;
+  padding-right: 12.896825%; /* 65px/504px */
+  /* 504px es la medida en ancho del contenedor titulo q contiene el titulo y el boton. Y esta medida se uso para anchura y altura. Y se usa 504 porque la etiqueta a del btn tiene comportamiento de bloque que se expande por las columnas asignadas en la grilla*/
+  padding-left: 9.896825%;
+  padding-bottom: 2.380952%;
+  margin-top: 5.952381%; /* 30px/504 */
+}
+
+.btn a::before {
+  content: url("src/forward_arrow.svg");
+  margin-right: calc(30px * (1536 / 1920));
 }
 
 /* ------------- Seccion 2 ------------ */
@@ -256,7 +275,8 @@ form#form_1 ::placeholder {
 }
 
 .texto_derecha {
-  margin: 0 6.875rem;
+  margin: 0 14.322917%;
+  /* Dividir la medida de 110 píxeles deseados para margin por el ancho del contenedor de 768 píxeles (resultado de del flex de 50% y 50% de una pantalla de 1536px) y luego multiplicar por 100 para obtener el porcentaje equivalente. */
   text-align: right;
   grid-row: 1 / 2;
 }
@@ -275,26 +295,43 @@ form#form_1 ::placeholder {
   font-weight: 500;
 }
 
+.prev {
+  display: flex;
+}
+
 .prev a {
   color: #b4b7b7;
   font-size: calc(20px * (1536 / 1920));
   font-weight: 390;
-  padding-right: 3.125rem;
+  padding-right: 12px;
 }
+
+.prev img {
+  padding-right: 0.625rem;
+}
+
 .view_properties a {
   color: #000;
   font-size: calc(30px * (1536 / 1920));
   font-weight: 390;
   border-radius: 100px;
   border: 1px solid #000;
-  padding: 0.75rem 4.0625rem;
+  padding: 12px 40px;
+}
+
+.next {
+  display: flex;
 }
 
 .next a {
   color: #df991b;
   font-size: calc(20px * (1536 / 1920));
   font-weight: 390;
-  padding-left: 3.125rem;
+  padding-left: 12px;
+}
+
+.next img {
+  padding-left: 0.625rem;
 }
 
 .presentacion_izquierda {
@@ -323,18 +360,33 @@ form#form_1 ::placeholder {
   /* max-width: 100% Solo para responsive; */
 }
 
-.localidad p {
+.localidad {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  padding-left: 0.625rem;
-  background-color: #0000005b;
-  padding-top: 0.625rem;
 }
 
-.localidad p span {
-  display: inline-block;
+.localidad {
+  background-color: #00000053;
+  padding-left: 1.875rem;
+  padding-top: 0.9375rem;
+  padding-bottom: 0.9375rem;
+}
+
+.ps_y_prv {
+  display: flex;
+  gap: 10px;
+}
+
+.img_disp {
+  display: none;
+}
+
+.icons_rent {
+  height: 30px;
+  width: 30px;
+  object-fit: contain;
 }
 
 .pais {
@@ -342,13 +394,32 @@ form#form_1 ::placeholder {
   font-family: var(--fuente-principal-regal);
   font-size: calc(30px * (1536 / 1920));
   font-weight: 400;
+  display: block;
+  width: 100%;
+  align-self: flex-end;
 }
+
 .provincia {
-  margin-bottom: 0.5313rem;
   color: #fff;
   font-family: var(--fuente-principal-regal);
   font-size: calc(40px * (1536 / 1920));
   font-weight: 500;
+}
+
+.contenedor_imagen:hover .localidad {
+  background-color: #fff;
+}
+
+.contenedor_imagen:hover .pais {
+  color: #464547;
+}
+
+.contenedor_imagen:hover .provincia {
+  color: #000;
+}
+
+.contenedor_imagen:hover .img_disp {
+  display: block;
 }
 
 /* -------------- Copia ------------------- */
@@ -366,7 +437,8 @@ form#form_1 ::placeholder {
 
 .texto_derecha_2 {
   text-align: left;
-  margin: 0 6.875rem;
+  margin: 0 14.322917%; /* 110px/768px */
+  /* Dividir la medida de 110 píxeles deseados para margin por el ancho del contenedor de 768 píxeles (resultado de del flex de 50% y 50% de una pantalla de 1536px) y luego multiplicar por 100 para obtener el porcentaje equivalente. */
 }
 
 .titulo_derecha2 {
@@ -387,7 +459,7 @@ form#form_1 ::placeholder {
   text-align: left;
   font-size: calc(25px * (1536 / 1920));
   line-height: calc(40px * (1536 / 1920));
-    padding-top: 2.5rem;
+  padding-top: 2.5rem;
   direction: ltr;
   /* Si no pongo este direction tengo problemas con los puntos finales */
 }
@@ -395,31 +467,76 @@ form#form_1 ::placeholder {
 .btn_slider_2 {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   text-align: center;
   grid-row: 2 / 3;
-  margin: 0 6.875rem;
+  margin: 0 14.322917%;
 }
 
-.localidad_2 p {
+.localidad_2 {
   position: absolute;
   bottom: 0;
   left: 0;
-  text-align: left;
   width: 100%;
-  padding-left: 0.625rem;
-  background-color: #0000005b;
-  padding-top: 0.625rem;
 }
 
-.localidad_2 p span {
-  display: inline-block;
+.localidad_2 {
+  background-color: #00000053;
+  text-align: left;
+  padding-left: 1.875rem;
+  padding-top: 0.9375rem;
+  padding-bottom: 0.9375rem;
+}
+
+.pais2 {
+  color: #fff;
+  font-family: var(--fuente-principal-regal);
+  font-size: calc(30px * (1536 / 1920));
+  font-weight: 400;
+}
+
+.provincia2 {
+  color: #fff;
+  font-family: var(--fuente-principal-regal);
+  font-size: calc(40px * (1536 / 1920));
+  font-weight: 500;
+}
+
+.contenedor_imagen:hover .localidad_2 {
+  background-color: #fff;
+}
+
+.contenedor_imagen:hover .pais2 {
+  color: #464547;
+}
+
+.contenedor_imagen:hover .provincia2 {
+  color: #000;
+}
+
+.contenedor_imagen:hover:nth-of-type(1) .pais2::after {
+  content: url("src/castle_2.svg");
+  margin-right: 10px;
+  /* el código se aplica cuando el contenedor .contenedor_imagen está en estado hover y afecta al primer elemento hijo con la clase .pais2, añadiendo un pseudo-elemento ::after con una imagen. Y use after porque la direccion esta inversa por el uso de la etiqueta direction*/
+}
+
+.contenedor_imagen:hover:nth-of-type(2) .pais2::after {
+  content: url("src/two_houses.svg");
+  margin-right: 10px;
+  /* el código se aplica cuando el contenedor .contenedor_imagen está en estado hover y afecta al primer elemento hijo con la clase .pais2, añadiendo un pseudo-elemento ::after con una imagen. Y use after porque la direccion esta inversa por el uso de la etiqueta direction*/
+}
+
+.contenedor_imagen:hover:nth-of-type(3) .pais2::after {
+  content: url("src/englad_house.svg");
+  margin-right: 10px;
+  /* el código se aplica cuando el contenedor .contenedor_imagen está en estado hover y afecta al primer elemento hijo con la clase .pais2, añadiendo un pseudo-elemento ::after con una imagen. Y use after porque la direccion esta inversa por el uso de la etiqueta direction*/
 }
 
 /* ------------- Seccion 3 ------------ */
 
 .desarrollos {
-  margin: 9.375rem 6.25rem;
+  margin: 9.765625% 7.161458%; /* 110px/1536 */
+  /* 150px / 1536 res de mi pantalla, 110px / 1536 */
 }
 .titulos_dsrll {
   text-align: center;
@@ -442,7 +559,7 @@ form#form_1 ::placeholder {
   flex-wrap: wrap;
 }
 .contenedor_img_dsrll {
-  padding-right: .625rem; /* Espacio entre columnas */
+  padding-right: 0.625rem; /* Espacio entre columnas */
   padding-bottom: 1.875rem;
   width: 25%;
 }
@@ -452,10 +569,9 @@ form#form_1 ::placeholder {
   padding-right: 0;
 }
 /* indica que la cuenta se realiza en dirección inversa, desde el último hijo hacia el primero. En este caso, selecciona los últimos cuatro elementos. */
-.contenedor_img_dsrll:nth-last-child(-n+4) {
+.contenedor_img_dsrll:nth-last-child(-n + 4) {
   padding-bottom: 0;
 }
-
 
 .img_dsrll {
   display: flex;
@@ -472,7 +588,7 @@ form#form_1 ::placeholder {
 }
 
 .construccion {
-  padding-left: .625rem;
+  padding-left: 0.625rem;
   padding-top: 1.5625rem;
 }
 .edificio {
@@ -480,7 +596,6 @@ form#form_1 ::placeholder {
   font-family: var(--fuente-principal-regal);
   font-size: calc(22px * (1536 / 1920));
   font-weight: 500;
-
 }
 .lugar {
   color: #000;
@@ -488,13 +603,12 @@ form#form_1 ::placeholder {
   font-size: calc(35px * (1536 / 1920));
   font-weight: 600;
   letter-spacing: 1px;
-
 }
 
 /* ------------- Seccion 4 ------------ */
 footer {
   display: grid;
-  grid-template-columns: 6.875rem repeat(10, 1fr) 6.875rem;
+  grid-template-columns: 7.161458% repeat(10, 1fr) 7.161458%;
   grid-template-rows: repeat(6, auto);
 }
 
@@ -505,25 +619,24 @@ footer {
   /* O 100%, las dos son formas de hacer un elemento responsivo */
   z-index: 1;
   height: calc(18rem * (864 / 1080));
-  background-color: #26282B;
+  background-color: #26282b;
   display: flex;
   align-items: center;
-  margin: auto;
   gap: 1rem;
 }
 .tls_form {
   width: 50%;
-  padding-left: calc(150px * (1536 / 1920));
+  padding-left: 9.765625%; /* 150px/1536 */
 }
 
 .join {
-  color: #DF991B;
+  color: #df991b;
   font-family: var(--fuente-principal-regal);
   font-size: calc(36px * (1536 / 1920));
   font-weight: 400;
 }
 .tlo_prnpl {
-  color: #FFF;
+  color: #fff;
   font-family: var(--fuente-principal-regal);
   font-size: calc(60px * (1536 / 1920));
   font-weight: 500;
@@ -532,44 +645,39 @@ footer {
 .datos {
   width: 50%;
   display: flex;
-  justify-content: flex-end;
-  padding-right: calc(150px* (1536 / 1920));
+  padding-right: 9.765625%; /* 150px/1536 */
 }
 
 .form {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 label[for="email"] {
   width: fit-content;
   text-align: left;
-  color: #FFF;
+  color: #fff;
   font-size: calc(25px * (1536 / 1920));
   font-weight: 390;
-  margin-bottom: .3125rem;
+  margin-bottom: 0.3125rem;
   padding-left: 2.5rem;
-
 }
 
 input[type="email"][id="email"] {
   border-radius: 100px;
-  border: 1px solid #7E7E7E;
-  background-color: #26282B;
-  padding-right: 21rem;
-  padding-left: 2rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  border: 1px solid #7e7e7e;
+  background-color: #26282b;
   font-size: calc(20px * (1536 / 1920));
-  color: #FFF;
+  color: #fff;
   outline: none; /* Quita el contorno al hacer clic en el input */
-
+  padding: 0.75rem 1.875rem;
 }
 
 .btn_email {
   border-radius: 100px;
-  border: 1px solid #DF991B;
-  background-color: #26282B;
+  border: 1px solid #df991b;
+  background-color: #26282b;
   padding-top: 0.75rem;
   padding-right: 4.0625rem;
   padding-bottom: 0.75rem;
@@ -577,27 +685,25 @@ input[type="email"][id="email"] {
   margin-top: 15px;
   align-self: flex-end;
   font-size: calc(30px * (1536 / 1920));
-  color: #DF991B;
+  color: #df991b;
 }
-
 
 .foot {
   width: calc(10% * 10);
   grid-column: 1 / 13;
   grid-row: 2 / 6;
   background-color: #000;
-  margin: 0 auto;
 }
 
 .cntdr_foot {
   display: flex;
   margin-top: 14.0625rem;
   align-items: flex-end;
-  margin-right: 6.875rem;
-  margin-left: 6.875rem;
+  margin-right: 7.161458%;
+  margin-left: 7.161458%;
   gap: 1rem;
-  border-bottom: .0625rem solid #FFF;
-    padding-bottom: 1.875rem;
+  border-bottom: 0.0625rem solid #fff;
+  padding-bottom: 1.875rem;
 }
 
 .ancho {
@@ -606,13 +712,11 @@ input[type="email"][id="email"] {
 
 .logo_foot {
   padding-top: 1.875rem;
-
 }
 
-.log_ft{
+.log_ft {
   display: block;
   padding-bottom: 2.1875rem;
-
 }
 
 .log_ft img {
@@ -622,8 +726,7 @@ input[type="email"][id="email"] {
   height: calc(1.4931rem * (864 / 1080));
 }
 
-.become  {
-
+.become {
 }
 .relleno a {
   font-size: calc(30px * (1536 / 1920));
@@ -635,7 +738,7 @@ input[type="email"][id="email"] {
 }
 
 .sts p {
-  padding-bottom: 1.875rem;  
+  padding-bottom: 1.875rem;
 }
 .suites a {
   font-size: calc(30px * (1536 / 1920));
@@ -649,7 +752,6 @@ input[type="email"][id="email"] {
 }
 .houses {
 }
-
 
 .hs_houses {
 }
@@ -666,10 +768,6 @@ input[type="email"][id="email"] {
 .cntct_p {
 }
 
-
-
-
-
 .call_center {
   display: flex;
   justify-content: flex-end;
@@ -685,7 +783,6 @@ input[type="email"][id="email"] {
   font-size: calc(40px * (1536 / 1920));
   line-height: calc(45px * (1536 / 1920));
   font-family: var(--fuente-principal-regal);
-
 }
 
 .call_email a {
@@ -695,13 +792,12 @@ input[type="email"][id="email"] {
   padding-top: 1.875rem;
 }
 
-
 .copyright {
   text-align: center;
   grid-column: 1 / 13;
   grid-row: 6 / 7;
   background-color: #000;
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 1.25rem 0;
 }
 p.copy {
@@ -714,8 +810,8 @@ p.copy {
 
 .seccion_art {
   display: grid;
-  grid-template-columns: 6.875rem repeat(10, 1fr) 6.875rem;
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: 7.161458% repeat(10, 1fr) 7.161458%;
+  grid-template-rows: repeat(6, 16.66%);
   /* Con medidas absolutas y fijas hay q tener cuidado en caso de que el item sea mas grande q el contenedor */
   margin-bottom: 3.125rem;
   overflow-x: hidden;
@@ -728,9 +824,12 @@ p.copy {
 }
 
 .gry_cuadrado {
-  width: calc(16.6667% * 6);
+  /* width: 100%; */
+  /* width: calc(16.6667% * 6); */
+  /* ESTE CALCULO NO TIENE MUCHO SENTIDO PORQUE PREFERIBLE 100%, PERO: */
   /* 16.6667% es 1/6 para 6 columnas. Dividir 100% (el ancho total) por el número total de columnas (6). La unidad rem se refiere al tamaño de la fuente de la raíz del documento, mientras que el porcentaje (%) se basa en el ancho del elemento contenedor. */
   height: calc(58.75rem * (864 / 1080));
+  min-height: 100%;
   background-color: #26282b;
 }
 
@@ -760,37 +859,49 @@ p.copy {
 .art_cntndr_ttls {
   grid-column: 8/12;
   grid-row: 2 /5;
-  padding-left: calc(30px * (1536 / 1920));;
-
+  padding-left: calc(30px * (1536 / 1920));
+  padding-top: 3.125rem;
 }
 .art_servicies {
-  color: #DF991B;
-font-family: var(--fuente-principal-regal);
-font-size: calc(2.5rem * (1536 / 1920));
-font-weight: 400;
+  color: #df991b;
+  font-family: var(--fuente-principal-regal);
+  font-size: calc(2.5rem * (1536 / 1920));
+  font-weight: 400;
 }
 .art_titulos {
   color: #000;
   font-family: var(--fuente-principal-regal);
   font-size: calc(5rem * (1536 / 1920));
-font-weight: 500;
+  font-weight: 500;
 }
 .prrf_art {
   color: #000;
-font-family: Brandon Grotesque;
-font-size: calc(25px * (1536 / 1920));
-line-height: calc(40px * (1536 / 1920));
-font-weight: 330;
-padding-top: 2.5rem;
+  font-family: Brandon Grotesque;
+  font-size: calc(25px * (1536 / 1920));
+  line-height: calc(40px * (1536 / 1920));
+  font-weight: 330;
+  padding-top: 2.5rem;
 }
 .btn_slider {
-  padding-left: calc(30px * (1536 / 1920));;
+  padding-left: calc(30px * (1536 / 1920));
   grid-column: 8/12;
   grid-row: 5 /6;
-  align-self: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
 }
+
+.prev2 {
+  display: flex;
+}
+
 .prev2 a {
 }
+
+.prev2 img {
+  padding-right: 0.625rem;
+}
+
 .btn_cntct a {
   color: #000;
   font-size: calc(30px * (1536 / 1920));
@@ -799,5 +910,27 @@ padding-top: 2.5rem;
   border: 1px solid #000;
   padding: 0.75rem 4.0625rem;
 }
+
+.next2 {
+  display: flex;
+}
+
 .next2 a {
+  color: #df991b;
+}
+
+.next2 img {
+  padding-left: 0.625rem;
+}
+
+@-moz-document url-prefix() {
+  .seccion_art {
+    /* grid-template-rows: auto repeat(4, 1fr) auto; */
+    grid-template-rows: repeat(6, 1fr);
+  }
+
+  .btn_slider {
+    grid-row: 5 /6;
+    align-items: flex-end;
+  }
 }
