@@ -38,11 +38,11 @@ body {
   /* scroll-snap-align: start; */
   width: 100%;
   height: 100vh;
-  background-image: url(images/hotel.jpg),
+  background-image: url(images/hotel.png),
     linear-gradient(180deg, #000000d3 0%, #7e7e7ed4 100%);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: 30% 30%;
   overflow-x: hidden;
   background-blend-mode: overlay;
 }
@@ -109,10 +109,14 @@ header {
   padding-left: 3.125rem;
 }
 
-.logo img {
+.logo_uniqluxury {
   width: calc(266px * (1536 / 1920));
   height: calc(23.89px * (864 / 1080));
   object-fit: contain;
+}
+
+.logo_mobile {
+  display: none;
 }
 
 .menu_icon {
@@ -839,8 +843,10 @@ p.copy {
   align-self: center;
 }
 
+.img_sala {
+}
+
 .img_sala img {
-  width: calc(48rem * (1536 / 1920));
   /* imagen cuadrada */
 }
 
@@ -932,5 +938,192 @@ p.copy {
   .btn_slider {
     grid-row: 5 /6;
     align-items: flex-end;
+  }
+}
+
+/* -------------- Medidad provisorias ----------------- */
+
+@media screen and (max-width: 1432px) {
+  .seccion_art {
+    grid-template-rows: repeat(6, auto);
+  }
+
+  .img_sala img {
+    height: clamp(400px, 450px, 614px);
+    /* 614px es la medida "original". En realidad la medida original era un poco mas de 800px pero al colocar la medida con calc en el navegador tomo la medida de 614px por lo que luego modifique la img original en photoshop y le cambie su tamano a 614px */
+  }
+
+  .gray_art {
+  }
+
+  .gry_cuadrado {
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 1288px) {
+  /* .img_sala {
+    width: 100%;
+    padding-bottom: 100%;
+    position: relative;
+  }
+
+  .img_sala img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  } */
+}
+
+/* ------------------------------- */
+
+@media screen and (max-width: 1130px) {
+  .inicio_registro {
+    display: none;
+  }
+
+  .idiomas {
+    display: none;
+  }
+
+  .logo_mobile {
+    display: block;
+  }
+
+  .logo_uniqluxury {
+    display: none;
+  }
+
+  main {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: initial;
+  }
+
+  header {
+    width: 100vw;
+  }
+
+  /* -------------- propiedades_renta_1 -------------- */
+  .propiedades_renta_1 {
+    /* Asegura que en dispositivos móviles, se apilen verticalmente */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .presentacion_derecha {
+    order: 1; /* Cambia el orden en dispositivos móviles */
+  }
+
+  .presentacion_izquierda {
+    order: 2; /* Cambia el orden en dispositivos móviles */
+  }
+
+  .contenedor_galeria {
+    justify-content: center;
+  }
+
+  /* -------------- propiedades_renta_2 --------------- */
+
+  .propiedades_renta_2 {
+    /* Asegura que en dispositivos móviles, se apilen verticalmente */
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* -------------- desarrollos --------------- */
+
+  .titulos_dsrll {
+    .tlo_1 {
+      font-size: calc(40px * (320 / 430));
+    }
+    .tlo_h2 {
+      font-size: calc(45px * (1536 / 1920));
+    }
+  }
+
+  .contenedor_img_dsrll {
+    width: 33.33%;
+  }
+
+  .contenedor_img_dsrll:nth-child(3n) {
+    padding-right: 0;
+  }
+
+  .contenedor_img_dsrll:nth-child(4n) {
+    padding-right: 0.625rem;
+  }
+
+  .contenedor_img_dsrll:nth-last-child(-n + 4) {
+    padding-bottom: 1.875rem;
+  }
+}
+
+@media screen and (min-width: 514px) and (max-width: 846px) {
+  .contenedor_img_dsrll {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    padding-right: 0.3125rem !important;
+    padding-left: 0.3125rem !important;
+  }
+
+  .contenedor_img_dsrll::nth-child(n) {
+    padding-right: initial;
+    padding-left: initial;
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 514px) {
+  .desarrollos {
+    margin: 0;
+  }
+
+  .contenedor_img_dsrll {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .contenedor_img_dsrll::nth-child(n) {
+    padding-right: initial;
+    padding-left: initial;
+  }
+
+  .formulario {
+    flex-direction: column;
+    height: auto;
+    align-items: flex-start;
+  }
+
+  .datos {
+    width: 100%;
+    display: initial;
+    padding-right: 0;
+  }
+
+  .tls_form {
+    width: auto;
+  }
+
+  .btn_email {
+    align-self: flex-start; 
+    /* Y si quisiera q tuviese ambos inputs el mismo ancho y q ocupasen todo el ancho del contenedor entonces probar con auto para ajustar el ancho del boton/input acorde al input de entrada*/
+  }
+
+  .cntdr_foot {
+    border-bottom: initial;
+  }
+
+  .copyright {
+    border-top: 0.0625rem solid #fff;
+  }
+
+  .img_dsrll img {
+    width: 450px;
   }
 }
