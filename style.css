@@ -610,6 +610,11 @@ input[type="text"][id="search"] {
 }
 
 /* ------------- Seccion 4 ------------ */
+
+.mobile_suites_houses {
+  display: none;
+}
+
 footer {
   display: grid;
   grid-template-columns: 7.161458% repeat(10, 1fr) 7.161458%;
@@ -812,6 +817,10 @@ p.copy {
 
 /* ------------- Seccion 5 ------------ */
 
+.seccion_art_mobile {
+  display: none;
+}
+
 .seccion_art {
   display: grid;
   grid-template-columns: 7.161458% repeat(10, 1fr) 7.161458%;
@@ -848,11 +857,12 @@ p.copy {
 
 .img_sala img {
   /* imagen cuadrada */
+  display: block;
 }
 
 .decor {
   grid-column: 8/12;
-  grid-row: 1 /1;
+  grid-row: 1 /2;
   align-self: flex-end;
 }
 
@@ -860,6 +870,7 @@ p.copy {
   width: calc(49.5625rem * (1536 / 1920));
   height: calc(7.1013rem * (864 / 1080));
   object-fit: cover;
+  display: block;
 }
 
 .art_cntndr_ttls {
@@ -941,28 +952,8 @@ p.copy {
   }
 }
 
-/* -------------- Medidad provisorias ----------------- */
-
-@media screen and (max-width: 1432px) {
-  .seccion_art {
-    grid-template-rows: repeat(6, auto);
-  }
-
-  .img_sala img {
-    height: clamp(400px, 450px, 614px);
-    /* 614px es la medida "original". En realidad la medida original era un poco mas de 800px pero al colocar la medida con calc en el navegador tomo la medida de 614px por lo que luego modifique la img original en photoshop y le cambie su tamano a 614px */
-  }
-
-  .gray_art {
-  }
-
-  .gry_cuadrado {
-    height: auto;
-  }
-}
-
-@media screen and (max-width: 1288px) {
-  /* .img_sala {
+/* ----- Para imgs responsivas -----  */
+/* .img_sala {
     width: 100%;
     padding-bottom: 100%;
     position: relative;
@@ -975,9 +966,25 @@ p.copy {
     object-fit: cover;
     display: block;
   } */
-}
 
 /* ------------------------------- */
+
+/* -------------- Medidad provisorias ----------------- */
+
+@media screen and (max-width: 1432px) {
+  .seccion_art {
+    grid-template-rows: repeat(6, 16.66%);
+  }
+
+  .img_sala img {
+    height: clamp(400px, 450px, 614px);
+    /* 614px es la medida "original". En realidad la medida original era un poco mas de 800px pero al colocar la medida con calc en el navegador tomo la medida de 614px por lo que luego modifique la img original en photoshop y le cambie su tamano a 614px */
+  }
+
+  .gry_cuadrado {
+    height: auto;
+  }
+}
 
 @media screen and (max-width: 1130px) {
   .inicio_registro {
@@ -1094,6 +1101,20 @@ p.copy {
     padding-left: initial;
   }
 
+  .cntdr_foot {
+    border-bottom: initial;
+  }
+
+  .copyright {
+    border-top: 0.0625rem solid #fff;
+  }
+
+  .img_dsrll img {
+    width: 450px;
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 794px) {
   .formulario {
     flex-direction: column;
     height: auto;
@@ -1111,19 +1132,208 @@ p.copy {
   }
 
   .btn_email {
-    align-self: flex-start; 
+    align-self: flex-start;
     /* Y si quisiera q tuviese ambos inputs el mismo ancho y q ocupasen todo el ancho del contenedor entonces probar con auto para ajustar el ancho del boton/input acorde al input de entrada*/
   }
+}
+
+@media screen and (min-width: 0px) and (max-width: 1130px) {
+  .seccion_art {
+    display: none;
+  }
+
+  .seccion_art_mobile {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .parte_superior {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .decor_2 {
+    align-self: flex-end;
+  }
+
+  .decor_2 img {
+    width: calc(49.5625rem * (1536 / 1920));
+    object-fit: cover;
+    display: block;
+  }
+  .art_cntndr_ttls_2 {
+    padding-left: calc(30px * (1536 / 1920));
+    padding-top: 3.125rem;
+  }
+  .art_servicies_2 {
+    color: #df991b;
+    font-family: var(--fuente-principal-regal);
+    font-size: calc(2.5rem * (1536 / 1920));
+    font-weight: 400;
+  }
+  .art_titulos_2 {
+    color: #000;
+    font-family: var(--fuente-principal-regal);
+    font-size: calc(5rem * (1536 / 1920));
+    font-weight: 500;
+  }
+  .prrf_art_2 {
+    color: #000;
+    font-family: Brandon Grotesque;
+    font-size: calc(25px * (1536 / 1920));
+    line-height: calc(40px * (1536 / 1920));
+    font-weight: 330;
+    padding-top: 2.5rem;
+  }
+  .btn_slider_2 {
+    padding-left: calc(30px * (1536 / 1920));
+  }
+  .prev2_2 img {
+    padding-right: 0.625rem;
+  }
+  .btn_cntct_2 {
+    color: #000;
+    font-size: calc(30px * (1536 / 1920));
+    font-weight: 390;
+    border-radius: 100px;
+    border: 1px solid #000;
+    padding: 0.75rem 4.0625rem;
+  }
+  .next2_2 a {
+    color: #df991b;
+  }
+
+  .next2_2 img {
+    padding-left: 0.625rem;
+  }
+
+  .parte_inferior {
+    display: grid;
+    grid-template-rows: 10% repeat(4, 25%) 10%;
+    grid-template-columns: repeat(6, 1fr);
+    padding-bottom: 20%;
+  }
+  .gray_art_2 {
+    grid-column: 1/5;
+    grid-row: 1/7;
+  }
+  .gry_cuadrado_2 {
+    min-height: 100%;
+    background-color: #26282b;
+  }
+  .img_sala_2 {
+    grid-column: 2/7;
+    grid-row: 2/6;
+  }
+
+  .img_sala_2 img {
+    max-width: 100%;
+    display: block;
+  }
+
+  /* ---------- foot ----------- */
 
   .cntdr_foot {
-    border-bottom: initial;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 0;
+    margin-left: 0;
   }
 
-  .copyright {
-    border-top: 0.0625rem solid #fff;
+  .ancho {
+    width: auto;
   }
 
-  .img_dsrll img {
-    width: 450px;
+  .call_center {
+    justify-content: initial;
+    text-align: initial;
+    width: 289.69px;
+  }
+
+  /* ------- arreglo al footer -------- */
+
+  .cntdr_suites {
+    display: none;
+  }
+
+  .cntdr_houses {
+    display: none;
+  }
+
+  .mobile_suites_houses {
+    display: flex;
+    justify-content: flex-start;
+    gap: 3rem;
+    width: 289.69px;
+  }
+
+  .cntdr_suites_2 {
+  }
+  .ancho_2 {
+  }
+  .sts_2 {
+  }
+  .suites_2 {
+    font-size: calc(30px * (1536 / 1920));
+    line-height: calc(45px * (1536 / 1920));
+  }
+  .cntdr_houses_2 {
+    font-size: calc(30px * (1536 / 1920));
+    line-height: calc(45px * (1536 / 1920));
+  }
+
+  .call_email a {
+    padding-top: 0;
+  }
+
+  .houses_2 {
+  }
+  .hs_houses_2 {
+  }
+  .hs_p_2 {
+  }
+  .hs_aprtmnts_2 {
+  }
+  .aprtmnts_p_2 {
+  }
+  .cntct_us_2 {
+  }
+  .cntct_p_2 {
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 626px) {
+  .parte_superior {
+    overflow: hidden;
+  }
+
+  .decor_2 {
+    align-self: flex-start;
+    overflow: hidden;
+  }
+
+  .decor_2 img {
+    width: initial;
+    height: clamp(53px, 70px, 90px);
+  }
+}
+
+@media screen and (min-width: 485px) and (max-width: 545px) {
+  .decor_2 {
+    align-self: flex-start;
+  }
+
+  .decor_2 img {
+    height: clamp(53px, 80px, 90px);
+  }
+}
+
+@media screen and (min-width: 545px) and (max-width: 626px) {
+  .decor_2 {
+    align-self: flex-end;
+  }
+
+  .decor_2 img {
+    height: clamp(53px, 80px, 90px);
   }
 }
