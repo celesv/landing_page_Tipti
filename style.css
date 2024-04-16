@@ -179,8 +179,9 @@ main {
 
 .buscador {
   grid-column: 9 / 12;
-  grid-row: 2 / 3;
+  grid-row: 2 / 4;
   align-self: flex-end;
+  height: 50%;
 }
 
 .buscador input {
@@ -219,6 +220,7 @@ input[type="text"][id="search"] {
 
 .contenedor_titulo {
   grid-area: 5 / 2 / 6 / 6;
+  width: fit-content;
 }
 
 .titulo {
@@ -240,7 +242,8 @@ input[type="text"][id="search"] {
 
 .btn a {
   display: block;
-  width: fit-content;
+  /* width: fit-content; */
+  width: auto;
   color: #fff;
   font-size: 20px;
   font-weight: 390;
@@ -249,9 +252,10 @@ input[type="text"][id="search"] {
   padding-top: 2.380952%;
   padding-right: 12.896825%; /* 65px/504px */
   /* 504px es la medida en ancho del contenedor titulo q contiene el titulo y el boton. Y esta medida se uso para anchura y altura. Y se usa 504 porque la etiqueta a del btn tiene comportamiento de bloque que se expande por las columnas asignadas en la grilla*/
-  padding-left: 9.896825%;
+  /* padding-left: 9.896825%; */
   padding-bottom: 2.380952%;
   margin-top: 5.952381%; /* 30px/504 */
+  text-align: center;
 }
 
 .btn a::before {
@@ -589,6 +593,7 @@ input[type="text"][id="search"] {
   width: calc(25.8125rem * (1536 / 1920));
   height: calc(16.75rem * (864 / 1080));
   object-fit: cover;
+  object-position: 50% 40%;
 }
 
 .construccion {
@@ -730,7 +735,6 @@ input[type="email"][id="email"] {
 
 .log_ft img {
   display: block;
-  max-width: 100%;
   width: calc(16.625rem * (1536 / 1920));
   height: calc(1.4931rem * (864 / 1080));
 }
@@ -799,6 +803,10 @@ input[type="email"][id="email"] {
   font-size: calc(30px * (1536 / 1920));
   line-height: calc(45px * (1536 / 1920));
   padding-top: 1.875rem;
+}
+
+.redes_sociales_2 {
+  display: none;
 }
 
 .copyright {
@@ -995,22 +1003,10 @@ p.copy {
     display: none;
   }
 
-  .logo_mobile {
-    display: block;
-  }
-
-  .logo_uniqluxury {
-    display: none;
-  }
-
   main {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(6, 1fr);
     gap: initial;
-  }
-
-  header {
-    width: 100vw;
   }
 
   /* -------------- propiedades_renta_1 -------------- */
@@ -1018,6 +1014,7 @@ p.copy {
     /* Asegura que en dispositivos móviles, se apilen verticalmente */
     display: flex;
     flex-direction: column;
+    margin-top: 0;
   }
 
   .presentacion_derecha {
@@ -1032,22 +1029,71 @@ p.copy {
     justify-content: center;
   }
 
+  .texto_derecha {
+    text-align: left;
+    padding: 60px 5%;
+    margin: 0;
+    width: fit-content;
+  }
+
+  .btn_slider_2 {
+    padding: 60px 5%;
+    flex-direction: column;
+    align-items: initial;
+    text-align: left;
+    margin: 0;
+  }
+
+  .view_properties a {
+    padding-left: initial;
+    border-radius: initial;
+    border: initial;
+    padding: initial;
+    -webkit-border-radius: initial;
+    -moz-border-radius: initial;
+    -ms-border-radius: initial;
+    -o-border-radius: initial;
+  }
+
+  .prev {
+    display: none;
+  }
+
+  .next {
+    display: none;
+  }
+
   /* -------------- propiedades_renta_2 --------------- */
 
   .propiedades_renta_2 {
     /* Asegura que en dispositivos móviles, se apilen verticalmente */
     display: flex;
     flex-direction: column;
+    margin-top: 0;
+  }
+
+  .texto_derecha_2 {
+    text-align: left;
+    margin: 0;
+    padding: 60px 5%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .prrf_renta_2 {
+    max-width: 600px;
+    width: 100%;
+    align-self: flex-end;
   }
 
   /* -------------- desarrollos --------------- */
 
   .titulos_dsrll {
     .tlo_1 {
-      font-size: calc(40px * (320 / 430));
+      font-size: calc(40px * (320 / 428));
     }
     .tlo_h2 {
-      font-size: calc(45px * (1536 / 1920));
+      font-size: calc(60px * (320 / 428));
     }
   }
 
@@ -1088,6 +1134,11 @@ p.copy {
     margin: 0;
   }
 
+  .titulos_dsrll {
+    text-align: left;
+    padding-left: 5%;
+  }
+
   .contenedor_img_dsrll {
     width: 100%;
     display: flex;
@@ -1109,8 +1160,20 @@ p.copy {
     border-top: 0.0625rem solid #fff;
   }
 
+  .img_dsrll {
+    position: relative;
+  }
   .img_dsrll img {
     width: 450px;
+  }
+
+  .construccion {
+    padding-left: 5%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding-bottom: 2.5%;
   }
 }
 
@@ -1119,6 +1182,7 @@ p.copy {
     flex-direction: column;
     height: auto;
     align-items: flex-start;
+    padding: 5% 5%;
   }
 
   .datos {
@@ -1129,6 +1193,7 @@ p.copy {
 
   .tls_form {
     width: auto;
+    padding: 0;
   }
 
   .btn_email {
@@ -1138,6 +1203,16 @@ p.copy {
 }
 
 @media screen and (min-width: 0px) and (max-width: 1130px) {
+  .buscador {
+    grid-column: 3 / 5;
+    padding: 0 1.25rem;
+    justify-self: center;
+  }
+
+  .barra {
+    display: none;
+  }
+
   .seccion_art {
     display: none;
   }
@@ -1186,7 +1261,6 @@ p.copy {
     padding-top: 2.5rem;
   }
   .btn_slider_2 {
-    padding-left: calc(30px * (1536 / 1920));
   }
   .prev2_2 img {
     padding-right: 0.625rem;
@@ -1230,14 +1304,51 @@ p.copy {
     max-width: 100%;
     display: block;
   }
+}
 
+@media screen and (min-width: 0px) and (max-width: 626px) {
+  .parte_superior {
+    overflow: hidden;
+  }
+
+  .decor_2 {
+    align-self: flex-start;
+    overflow: hidden;
+  }
+
+  .decor_2 img {
+    width: initial;
+    height: clamp(53px, 70px, 90px);
+  }
+}
+
+@media screen and (min-width: 485px) and (max-width: 545px) {
+  .decor_2 {
+    align-self: flex-start;
+  }
+
+  .decor_2 img {
+    height: clamp(53px, 80px, 90px);
+  }
+}
+
+@media screen and (min-width: 545px) and (max-width: 626px) {
+  .decor_2 {
+    align-self: flex-end;
+  }
+
+  .decor_2 img {
+    height: clamp(53px, 80px, 90px);
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 1029px) {
   /* ---------- foot ----------- */
 
   .cntdr_foot {
     flex-direction: column;
     align-items: center;
-    margin-right: 0;
-    margin-left: 0;
+    gap: 2.5rem;
   }
 
   .ancho {
@@ -1248,6 +1359,24 @@ p.copy {
     justify-content: initial;
     text-align: initial;
     width: 289.69px;
+  }
+
+  .logo_foot {
+    padding-top: 3.75rem;
+  }
+
+  .redes_sociales_2 {
+    display: flex;
+    width: 289.69px;
+    /* width: 100%; */
+    /* El width 100% solo lo coloque como ejemplo para q se note la importancia de definir un ancho fijo en este caso para q todos los elementos del footer esten centrados pero alineados desde el mismo comienzo del lado izquierdo */
+    gap: 30px;
+  }
+
+  .redes_sociales_2 img {
+    width: 1.25rem;
+    height: 1.25rem;
+    object-fit: contain;
   }
 
   /* ------- arreglo al footer -------- */
@@ -1302,38 +1431,69 @@ p.copy {
   }
 }
 
-@media screen and (min-width: 0px) and (max-width: 626px) {
-  .parte_superior {
-    overflow: hidden;
-  }
-
-  .decor_2 {
-    align-self: flex-start;
-    overflow: hidden;
-  }
-
-  .decor_2 img {
-    width: initial;
-    height: clamp(53px, 70px, 90px);
+@media screen and (min-width: 0px) and (max-width: 338px) {
+  .become {
+    width: 289.69px;
   }
 }
 
-@media screen and (min-width: 485px) and (max-width: 545px) {
-  .decor_2 {
-    align-self: flex-start;
+@media screen and (min-width: 0px) and (max-width: 600px) {
+  .logo_mobile {
+    display: block;
   }
 
-  .decor_2 img {
-    height: clamp(53px, 80px, 90px);
+  .logo_uniqluxury {
+    display: none;
+  }
+
+  .buscador {
+    grid-column: 1 / 5;
+    grid-row: 2 / 4;
+    height: 70%;
+    padding: 0 8%;
+    width: 100%;
+    align-self: center;
+  }
+
+  .contenedor_titulo {
+    grid-area: 4 / 1 / 6 / 5;
+    padding: 0 10%;
+    /* width: max-content; */
+    /* Muy util el max-content para lograr acomodar en el centro una tipografia (obvio junto a otras propiedades. El fit-content tamb podria ser util con botones*/
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .titulo p {
+    font-size: 10vw;
+  }
+
+  .titulo h1 {
+    font-size: 15vw;
+  }
+
+  .btn a {
+    padding-left: 4%;
+    width: 100%;
+    text-align: center;
   }
 }
 
-@media screen and (min-width: 545px) and (max-width: 626px) {
-  .decor_2 {
-    align-self: flex-end;
+@media screen and (min-width: 600px) and (max-width: 800px) {
+  .contenedor_titulo {
+    grid-area: 4 / 1 / 6 / 5;
+    justify-self: center;
   }
 
-  .decor_2 img {
-    height: clamp(53px, 80px, 90px);
+  .btn a {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1130px) {
+  .contenedor_titulo {
+    grid-area: 4 / 1 / 6 / 5;
+    justify-self: center;
   }
 }
